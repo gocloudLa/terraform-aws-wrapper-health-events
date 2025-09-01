@@ -1,0 +1,6 @@
+title: "Complete Example"
+description: "This example demonstrates the configuration of health events within a Terraform module."
+main_purpose: "The main purpose is to enable and configure health events parameters."
+key_features:
+  - "**Enable Health Events**: Enables the health events feature, defaulting to false if not specified."
+  - "**Health Events Defaults**: Utilizes variable defaults for health events configuration."
