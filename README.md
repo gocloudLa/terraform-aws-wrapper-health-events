@@ -34,6 +34,7 @@ health_events_parameters = {
 | event_bus_name     | Name of the EventBridge Bus (if a custom one is used)  | `string` | `default` | no       |
 | sns_topics_targets | List of sns topics targets                             | `list`   | `[]`      | no       |
 | email              | Email address to receive AWS Health notifications      | `string` | `null`    | no       |
+| tags               | A map of tags to assign to resources.                  | `map`    | `{}`      | no       |
 
 
 
