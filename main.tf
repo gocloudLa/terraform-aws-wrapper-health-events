@@ -30,5 +30,5 @@ module "health_events" {
     }
   })
 
-  tags = local.common_tags
+  tags = merge(local.common_tags, try(var.health_events_parameters.tags, var.health_events_defaults.tags, null))
 }
