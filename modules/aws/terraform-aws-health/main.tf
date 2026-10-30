@@ -21,7 +21,7 @@ resource "aws_cloudwatch_event_rule" "health_event_issue" {
   name_prefix         = null
   description         = var.description_issue
   event_bus_name      = var.event_bus_name
-  event_pattern       = var.event_pattern_issue
+  event_pattern       = local.event_pattern_issue
   schedule_expression = null
   force_destroy       = false
   role_arn            = null
@@ -37,7 +37,7 @@ resource "aws_cloudwatch_event_rule" "health_event_schedule_and_account" {
   name_prefix         = null
   description         = var.description_schedule_and_account
   event_bus_name      = var.event_bus_name
-  event_pattern       = var.event_pattern_schedule_and_account
+  event_pattern       = local.event_pattern_schedule_and_account
   schedule_expression = null
   force_destroy       = false
   role_arn            = null
