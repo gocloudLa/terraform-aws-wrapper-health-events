@@ -6,6 +6,10 @@ module "health_events" {
   sns_topics_targets     = try(var.health_events_parameters.sns_topics_targets, var.health_events_defaults.sns_topics_targets, [])
   email                  = try(var.health_events_parameters.email, var.health_events_defaults.email, null)
   default_sns_topic_name = "${local.common_name}-alerts"
+  health_events_excluded = {
+    "excluded_services"         = try(var.health_events_parameters.excluded_services, var.health_events_defaults.excluded_services, [])
+    "excluded_event_type_codes" = try(var.health_events_parameters.excluded_event_type_codes, var.health_events_defaults.excluded_event_type_codes, [])
+  }
 
   # Health Issue Notification 
   name_issue        = "${local.common_name}-issue"

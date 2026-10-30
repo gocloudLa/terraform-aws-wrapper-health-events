@@ -1,3 +1,19 @@
+locals {
+  health_events_exclusions = {
+    for key, values in var.health_events_excluded : key => [{ "anything-but" = values }] if length(values) > 0
+  }
+
+  event_pattern_issue = (length(local.health_events_exclusions) > 0 ?
+    jsonencode(merge(jsondecode(var.event_pattern_issue), {
+      "detail" = merge(jsondecode(var.event_pattern_issue).detail, local.health_events_exclusions)
+  })) : var.event_pattern_issue)
+
+  event_pattern_schedule_and_account = (length(local.health_events_exclusions) > 0 ?
+    jsonencode(merge(jsondecode(var.event_pattern_schedule_and_account), {
+      "detail" = merge(jsondecode(var.event_pattern_schedule_and_account).detail, local.health_events_exclusions)
+  })) : var.event_pattern_schedule_and_account)
+}
+
 resource "aws_cloudwatch_event_rule" "health_event_issue" {
   count = var.enable ? 1 : 0
 
