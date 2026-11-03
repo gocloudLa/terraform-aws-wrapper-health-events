@@ -8,7 +8,7 @@ module "health_events" {
   default_sns_topic_name = "${local.common_name}-alerts"
   health_events_excluded = {
     "excluded_services"         = try(var.health_events_parameters.excluded_services, var.health_events_defaults.excluded_services, [])
-    "excluded_event_type_codes" = try(var.health_events_parameters.excluded_event_type_codes, var.health_events_defaults.excluded_event_type_codes, [])
+    "excluded_event_type_codes" = try(var.health_events_parameters.excluded_event_type_codes, var.health_events_defaults.excluded_event_type_codes, ["AWS_ECS_TASK_PATCHING_RETIREMENT"])
   }
 
   # Health Issue Notification 
