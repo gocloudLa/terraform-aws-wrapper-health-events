@@ -73,3 +73,9 @@ variable "default_sns_topic_name" {
   description = ""
   default     = ""
 }
+
+variable "health_events_excluded" {
+  type        = map(list(string))
+  description = "Map of event detail fields (service, eventTypeCode) to values that will not be notified"
+  default     = {}
+}

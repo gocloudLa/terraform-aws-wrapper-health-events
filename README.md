@@ -16,10 +16,12 @@ The Terraform Wrapper for Health Events captures events from the AWS Health Dash
 ## 🚀 Quick Start
 ```hcl
 health_events_parameters = {
-      enable = true # default false
-      #email  = "xxxxxx@gmail.com"
-      #sns_topics_targets = []
-  }
+  enable = true # default false
+  # email  = "xxxxxx@gmail.com"
+  # sns_topics_targets = []
+  # excluded_event_type_codes = ["AWS_VPN_REDUNDANCY_LOSS", "AWS_ECS_TASK_PATCHING_RETIREMENT"]
+  # excluded_services = ["VPN", "ECS"]
+}
 ```
 
 
@@ -28,13 +30,15 @@ health_events_parameters = {
 
 
 ## 📑 Inputs
-| Name               | Description                                            | Type     | Default   | Required |
-| ------------------ | ------------------------------------------------------ | -------- | --------- | -------- |
-| enable             | Enable or disable the creation of Health notifications | `bool`   | `false`   | no       |
-| event_bus_name     | Name of the EventBridge Bus (if a custom one is used)  | `string` | `default` | no       |
-| sns_topics_targets | List of sns topics targets                             | `list`   | `[]`      | no       |
-| email              | Email address to receive AWS Health notifications      | `string` | `null`    | no       |
-| tags               | A map of tags to assign to resources.                  | `map`    | `{}`      | no       |
+| Name                      | Description                                            | Type     | Default   | Required |
+| ------------------------- | ------------------------------------------------------ | -------- | --------- | -------- |
+| enable                    | Enable or disable the creation of Health notifications | `bool`   | `false`   | no       |
+| event_bus_name            | Name of the EventBridge Bus (if a custom one is used)  | `string` | `default` | no       |
+| sns_topics_targets        | List of sns topics targets                             | `list`   | `[]`      | no       |
+| email                     | Email address to receive AWS Health notifications      | `string` | `null`    | no       |
+| excluded_event_type_codes | List of event type codes to exclude from notifications | `list`   | `[]`      | no       |
+| excluded_services         | List of services to exclude from notifications         | `list`   | `[]`      | no       |
+| tags                      | A map of tags to assign to resources.                  | `map`    | `{}`      | no       |
 
 
 
