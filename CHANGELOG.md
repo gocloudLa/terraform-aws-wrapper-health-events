@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/gocloudLa/terraform-aws-wrapper-health-events/compare/v1.0.0...v1.1.0) (2026-11-03)
+
+
+### Features
+
+* **module:** add excluded events and services notifications ([#3](https://github.com/gocloudLa/terraform-aws-wrapper-health-events/issues/3)) ([48daf44](https://github.com/gocloudLa/terraform-aws-wrapper-health-events/commit/48daf44c3d6d14f1464bf6ef05a560c796d98f06))
+
 ## 1.0.0 (2025-09-05)
 
 
